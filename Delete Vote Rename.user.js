@@ -26,7 +26,6 @@
     {
         if(deleteButton[i].getAttribute("data-has-active-vote") == "true")
         {
-            console.log(1);
             var deleteVotes = delVoteRegex.exec(deleteButton[i].innerText);
             if(deleteButton[i].getAttribute("data-is-deleted") == "true")
             {

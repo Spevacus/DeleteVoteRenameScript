@@ -17,6 +17,10 @@ Same applies if you've already voted to undelete something:
 
 ![Retract undelete button display](https://i.imgur.com/AK1Yras.png)
 
+Also makes the prompt popup a bit more eyecatching if you're about to retract your vote:
+
+![Retract delete vote prompt](https://i.imgur.com/cCSoF7h.png)
+
 ### Compatibility:
 
 Compatible with the [Stack Overflow Unofficial Patch (SOUP)](https://stackapps.com/q/4486). Might submit a pull request for it later idk.

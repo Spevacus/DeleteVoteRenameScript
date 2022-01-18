@@ -9,7 +9,9 @@ Link: [Install](https://github.com/Spevacus/DeleteVoteRenameScript/raw/main/Dele
 Effectively completes [this feature request](https://meta.stackexchange.com/q/371810/622284).
 
 If you've voted to delete something, the delete button is replaced with "Retract Delete (votes)" text:
+
 ![Retract delete button display](https://i.imgur.com/3kxVIyb.png)
 
 Same applies if you've already voted to undelete something:
+
 ![Retract undelete button display](https://i.imgur.com/AK1Yras.png)

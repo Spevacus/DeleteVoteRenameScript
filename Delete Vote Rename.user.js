@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Vote Rename
 // @namespace    https://github.com/Spevacus
-// @version      1.0
+// @version      1.1
 // @description  Renames the Delete button to "Retract Delete" if you've already voted to delete. Same applies for Undelete votes.
 // @author       Spevacus
 // @match       *://*.stackexchange.com/questions/*
@@ -22,7 +22,7 @@
     'use strict';
     var deleteButton = document.getElementsByClassName('js-delete-post s-btn s-btn__link js-gps-track');//Delete button class
     var delVoteRegex = /\(([^)]+)\)/;//Grabs delete vote count
-    for(var i = 0; i <= deleteButton.length; i++)
+    for(var i = 0; i <= deleteButton.length - 1; i++)
     {
         if(deleteButton[i].getAttribute("data-has-active-vote") == "true")
         {
@@ -30,12 +30,12 @@
             if(deleteButton[i].getAttribute("data-is-deleted") == "true")
             {
                 deleteButton[i].innerText = "Retract Undelete " + deleteVotes[0];
-                deleteButton[i].setAttribute("data-prompt", "Are you sure you want to RETRACT your vote to undelete? You will NOT be able to vote to undelete again!");
+                deleteButton[i].setAttribute("data-prompt", "UNDELETE VOTE RETRACTION\n\nAre you sure you want to RETRACT your vote to undelete? You will NOT be able to vote to undelete again!");
             }
             else
             {
                 deleteButton[i].innerText = "Retract Delete " + deleteVotes[0];
-                deleteButton[i].setAttribute("data-prompt", "Are you sure you want to RETRACT your vote to delete? You will NOT be able to vote to delete again!");
+                deleteButton[i].setAttribute("data-prompt", "DELETE VOTE RETRACTION\n\nAre you sure you want to RETRACT your vote to delete? You will NOT be able to vote to delete again!");
             }
         }
     }

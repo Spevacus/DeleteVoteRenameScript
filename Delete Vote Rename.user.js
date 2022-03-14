@@ -42,16 +42,14 @@
     }
 })();
 
-function registerDeleteButtonClickEvents(deleteButtons)
-{
+function registerDeleteButtonClickEvents(deleteButtons) {
     for(var i = 0; i <= deleteButtons.length - 1; i++)
     {
         $(deleteButtons[i]).on("click", handleDeleteButtonClick);
     }
 }
 
-function handleDeleteVoteDisplay(deleteButtons)
-{
+function handleDeleteVoteDisplay(deleteButtons) {
     var delVoteRegex = /\(([^)]+)\)/;//Grabs delete vote count
     for(var i = 0; i <= deleteButtons.length - 1; i++)
     {
@@ -72,8 +70,7 @@ function handleDeleteVoteDisplay(deleteButtons)
     }
 }
 
-function handleReopenVoteDisplay(reopenButton)
-{
+function handleReopenVoteDisplay(reopenButton) {
     if(reopenButton.getAttribute("data-has-active-vote") == "true")
     {
         //The current votes for close/reopen have their own class, contrary to delete/undelete votes.
@@ -86,8 +83,7 @@ function handleReopenVoteDisplay(reopenButton)
     }
 }
 
-function lookForReopenVoteResponses(responseHTML, reopenButton, deleteButtons)
-{
+function lookForReopenVoteResponses(responseHTML, reopenButton, deleteButtons) {
     var currVotes = reopenButton.getElementsByClassName('existing-flag-count')[0]; //Can be null if there are no pending reopen votes
     //15 = reopen vote
     if(responseHTML?.includes('FlagType":15'))
@@ -105,8 +101,7 @@ function lookForReopenVoteResponses(responseHTML, reopenButton, deleteButtons)
     }
 }
 
-function handleDeleteButtonClick(eventRef)
-{
+function handleDeleteButtonClick(eventRef) {
     //When fired from the keyboard, this is reliably null.
     //When manually clicked, this is reliably true.
     if(eventRef.cancelable == null)
@@ -131,8 +126,7 @@ function isDelVoteRetraction(postSelected)
     return false;
 }
 
-async function handleKeyboardShortcutRetraction(postSelected)
-{
+async function handleKeyboardShortcutRetraction(postSelected) {
     var postID = getPostID(postSelected);
     //The 'deleted-answer' class is used for deleted posts.
     if(postSelected.classList.contains('deleted-answer'))
@@ -151,13 +145,11 @@ async function handleKeyboardShortcutRetraction(postSelected)
     }
 }
 
-function getPostID(postSelected)
-{
+function getPostID(postSelected) {
     return postSelected.getAttribute('id') == "question" ? postSelected.getAttribute('data-questionid') : postSelected.getAttribute('data-answerid');
 }
 
-function postVoteAndRefresh(postID, voteID, type)
-{
+function postVoteAndRefresh(postID, voteID, type) {
     let fkey = window.localStorage["se:fkey"].split(",")[0];
     window.setTimeout(function() {
         $.post({

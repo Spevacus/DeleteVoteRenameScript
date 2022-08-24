@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete/Reopen Vote Rename
 // @namespace    https://github.com/Spevacus
-// @version      1.2
+// @version      1.3
 // @description  Renames the moderation voting buttons for Delete/Undelete/Reopen to "Retract (vote type)" if you've already voted. Also more verbosely clarifies this for keyboard shortcut users.
 // @author       Spevacus
 // @match       *://*.stackexchange.com/questions/*
@@ -71,7 +71,7 @@ function handleDeleteVoteDisplay(deleteButtons) {
 }
 
 function handleReopenVoteDisplay(reopenButton) {
-    if(reopenButton.getAttribute("data-has-active-vote") == "true")
+    if(reopenButton?.getAttribute("data-has-active-vote") == "true")
     {
         //The current votes for close/reopen have their own class, contrary to delete/undelete votes.
         var currVotes = reopenButton.getElementsByClassName('existing-flag-count')[0];
@@ -84,7 +84,7 @@ function handleReopenVoteDisplay(reopenButton) {
 }
 
 function lookForReopenVoteResponses(responseHTML, reopenButton, deleteButtons) {
-    var currVotes = reopenButton.getElementsByClassName('existing-flag-count')[0]; //Can be null if there are no pending reopen votes
+    var currVotes = reopenButton?.getElementsByClassName('existing-flag-count')[0]; //Can be null if there are no pending reopen votes
     //15 = reopen vote
     if(responseHTML?.includes('FlagType":15'))
     {

@@ -1,5 +1,5 @@
 ## DeleteVoteRenameScript
-Makes it more clear if you've voted to delete/undelete on a Stack Exchange post.
+Makes it more clear if you've voted to reopen/delete/undelete on a Stack Exchange post.
 
 ### Installation:
 Made with Tampermonkey. Conflicts with other script managers may occur, but I highly doubt it.
